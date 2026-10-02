@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blinking LED board · PCB Laser Artwork</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='builder.css') }}">
+</head>
+<body class="builder-page">{% include '_account-nav.html' %}<main>
+  <header><a class="back" href="/build">← Start over</a><p class="eyebrow">READY TO BUILD · LEARNING PROJECT 01</p><h1>Your blinking light board.</h1><p>A small, single-sided through-hole board that flashes one LED from a 9 V battery.</p></header>
+
+  <figure class="project-preview"><img src="{{ url_for('static', filename='assets/blinking-led-preview.png') }}" alt="Example of the finished blinking LED project on a small board"><figcaption>Rough preview of the finished project. Your parts and board will not look exactly the same.</figcaption></figure>
+
+  <section class="project-explainer">
+    <h2>What the parts do</h2>
+    <ul class="plain-steps"><li><strong>The 555 chip</strong> is the tiny clock that repeatedly turns the light on and off.</li><li><strong>The two timing parts</strong> tell the chip how fast to blink.</li><li><strong>The LED resistor</strong> keeps the LED safe.</li></ul>
+  </section>
+
+  <section class="downloads">
+    <h2>Get your build files</h2>
+    <p><a class="button" href="/build/blinking-led/laser.svg">Download laser artwork</a></p>
+    <p><a href="/build/blinking-led/board.kicad_pcb">KiCad board file</a> · <a href="{{ url_for('blinking_led_bom', led=led) }}">open shopping list</a></p>
+    <p><strong>{{ led_info.label }} LED selected:</strong> use a {{ led_info.resistor }} resistor for R3. Different LED colors need different resistors so the LED stays safe.</p>
+    <p class="hint">The laser artwork is bottom copper and already mirrored for the usual component-side view. Make a paper test first.</p>
+  </section>
+
+  <section class="prototype">
+    <p class="eyebrow">BEFORE ETCHING</p>
+    <h2>Three quick checks</h2>
+    <ol class="plain-steps"><li>Print or frame the SVG at 100% size and confirm the board will fit your parts.</li><li>Use the KiCad file if you want to inspect pad locations or change the board.</li><li>This learning board uses four short insulated jumper wires on the component side. They are normal for a simple single-sided board.</li></ol>
+  </section>
+
+  <section class="kicad-note"><p class="eyebrow">IMPORTANT</p><h2>Do not connect the battery yet</h2><p>After soldering, inspect for solder bridges and confirm the electrolytic capacitor and LED polarity before connecting 9 V. The first hardware build should be checked with a multimeter if one is available.</p></section>
+  {% if enclosure %}<section class="project-explainer"><p class="eyebrow">ENCLOSURE LATER</p><h2>We’ll plan around it.</h2><p>This selection is saved with the project direction: future enclosure-aware boards keep the LED and power connection where a simple printed case can reach them.</p></section>{% endif %}
+  <p><a class="button" href="/build">Make another idea</a></p>
+</main></body></html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="refresh" content="5">
+  <title>Building your project · PCB Laser Artwork</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='builder.css') }}">
+</head>
+<body class="builder-page">{% include '_account-nav.html' %}<main>
+  <header>
+    <a class="back" href="/">← Project home</a>
+    <p class="eyebrow">NEW PROJECT · PROJECT {{ project_id|upper }}</p>
+    <h1>We’re building your project.</h1>
+    <p>This page updates automatically. You can leave it open while the circuit and board are checked.</p>
+  </header>
+  <section class="working-card" aria-live="polite">
+    <div class="working-mark" aria-hidden="true"></div>
+    <div><h2>In progress</h2><p>{{ message }}</p></div>
+  </section>
+  <ol class="build-progress">
+    <li>Turn your idea into a simple circuit</li>
+    <li>Choose parts and place them on a new board</li>
+    <li>Route the copper and check it in KiCad</li>
+    <li>Prepare the preview, shopping list, and laser SVG</li>
+  </ol>
+  <p class="wait-note">This can take several minutes. No existing project is being substituted for yours.</p>
+</main></body>
+</html>

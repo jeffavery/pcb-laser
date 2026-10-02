@@ -1,0 +1,4 @@
+hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+.button{background:var(--accent);border:0;border-radius:9px;color:#062820;cursor:pointer;display:inline-block;font:700 1rem system-ui,sans-serif;padding:13px 20px;text-decoration:none}
+table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}th{color:var(--accent)}li{margin:.45rem 0}
+.notes{display:block;margin:22px 0;font-weight:650}.notes textarea{display:block;background:#0d1518;border:1px solid #66818a;border-radius:10px;color:var(--ink);font:inherit;margin:10px 0;padding:12px;resize:vertical;width:100%}.notes small{color:var(--muted);display:block;font-size:.9rem;font-weight:400}

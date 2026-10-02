@@ -1,0 +1,7 @@
+{% if current_account %}<nav class="account-nav" aria-label="Account menu">
+  <a href="{{ url_for('index') }}">Projects</a>
+  <a href="{{ url_for('settings') }}">Settings</a>
+  {% if current_account.role == 'admin' %}<a href="{{ url_for('admin') }}">Admin</a>{% endif %}
+  <span>{{ current_account.email }}</span>
+  <form method="post" action="{{ url_for('logout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button type="submit">Sign out</button></form>
+</nav>{% endif %}

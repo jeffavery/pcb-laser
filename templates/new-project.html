@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>New project · PCB Laser Artwork</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='builder.css') }}"></head>
+<body class="builder-page">{% include '_account-nav.html' %}<main>
+  <header><a class="back" href="/build">← Change this new project</a><p class="eyebrow">NEW PROJECT · PROJECT {{ project.id|upper }}</p><h1>Your project has started.</h1><p>This is separate from every completed project in the library.</p></header>
+  <section class="idea"><p>{{ project.idea }}</p></section>
+  <section class="project-explainer"><h2>Your design brief</h2><ul class="plain-steps"><li>{% if project.parts == 'have' %}You plan to use parts you already have.{% else %}We will make a shopping list for you.{% endif %}</li><li>You chose {{ project.style }} parts and a {{ led_info.label|lower }} LED.</li><li>{% if project.enclosure %}We will keep the LED and power connection in practical locations for a simple future enclosure.{% else %}The board will focus on being easy to build first.{% endif %}</li></ul></section>
+  <section class="prototype"><p class="eyebrow">NEXT DESIGN STEP</p><h2>Build this project’s circuit</h2><p>The next step is to turn this brief into its own simple circuit and checked board. It will not be replaced with the blinking-light project or any other existing project.</p></section>
+  <p><a class="button" href="/build">Start another new project</a></p>
+</main></body></html>

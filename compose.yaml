@@ -1,0 +1,30 @@
+services:
+  pcb-laser:
+    build: .
+    container_name: pcb-laser
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PCB_GENERATE_PHOTOS: "yes"
+    ports:
+      - "8091:8000"
+    volumes:
+      - ./data:/data
+    networks:
+      - proxy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  proxy:
+    external: true
